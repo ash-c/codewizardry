@@ -1,0 +1,7 @@
+lockfileVersion: 5.4
+
+specifiers:
+  '@cw/storybook': 0.0.1
+
+devDependencies:
+  '@cw/storybook': link:../../../apps/storybook
