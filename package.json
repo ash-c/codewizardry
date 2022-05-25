@@ -5,11 +5,10 @@
 	"description": "",
 	"scripts": {
 		"app:codewizardry": "pnpm -r --filter=./apps/codewizardry",
-		"app:storybook": "pnpm -r --filter=./apps/storybook",
-		"storybook": "start-storybook -p 6006",
-		"build-storybook": "build-storybook"
+		"app:storybook": "pnpm -r --filter=./apps/storybook"
 	},
 	"dependencies": {
+		"@changesets/cli": "^2.22.0",
 		"@preconstruct/cli": "^2.1.5",
 		"typescript": "^4.6.4"
 	},
