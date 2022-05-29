@@ -11,5 +11,6 @@ export const Complete: Story<ButtonProps> = (args) => {
 };
 
 Complete.args = {
+	onClick: () => {},
 	label: "This is a label",
 };
