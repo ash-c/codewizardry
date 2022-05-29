@@ -1,7 +1,0 @@
-# @papyrus/button
-
-## 0.0.2
-
-### Patch Changes
-
-- Added onClick handler.
