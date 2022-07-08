@@ -1,0 +1,10 @@
+:root {
+    --primary: #4495E1;
+    
+    font-family: system-ui, sans-serif; 
+    line-height: 1.4 ;
+}
+
+a {
+    color: var(--primary);
+}
