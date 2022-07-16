@@ -20,9 +20,15 @@ export const Core = ({ children }: CoreProps) => {
 			<nav>
 				<Column gap="none" className="height-full align-center">
 					<Box className="nav-logo">CW</Box>
-					<Link to="/">Home</Link>
-					<Link to="/projects">Projects</Link>
-					<Link to="/concepts">Concepts</Link>
+					<Link to="/" prefetch="intent">
+						Home
+					</Link>
+					<Link to="/projects" prefetch="intent">
+						Projects
+					</Link>
+					<Link to="/concepts" prefetch="intent">
+						Concepts
+					</Link>
 				</Column>
 			</nav>
 			<Container>{children}</Container>

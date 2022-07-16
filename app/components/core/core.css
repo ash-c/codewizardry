@@ -117,11 +117,11 @@ nav {
     align-items: center;
     padding: 0 8px;
     background-color: var(--color-blue);
-    background-image: linear-gradient(to right, var(--color-blue-dark-2), var(--color-teal-light-2));
+    background-image: linear-gradient(to right, var(--color-blue), var(--color-teal));
     color: var(--color-white);
-    height: 4rem;
+    height: 3rem;
     margin-bottom: var(--space-xlarge);
-    border-bottom: solid 4px var(--color-teal-light-2);
+    border-bottom: solid 4px var(--color-teal);
 }
 
 nav .nav-logo {
@@ -135,9 +135,9 @@ nav a {
     display: flex;    
     align-items: center;
     padding: 0 16px;
-    font-weight: bold;
+    font-weight: 600;
 }
 
 nav a:hover {
-    background-color: var(--color-blue-dark-1);
+    text-decoration: underline;
 }
