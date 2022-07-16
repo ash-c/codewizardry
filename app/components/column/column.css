@@ -1,0 +1,4 @@
+.cw-column {
+    display: flex;
+    flex-direction: row;
+}
