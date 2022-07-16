@@ -1,4 +1,4 @@
-import type { MetaFunction } from "@remix-run/node";
+import type { LinksFunction, MetaFunction } from "@remix-run/node";
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from "@remix-run/react";
 import { Core, CoreLinks } from "./components/core";
 
@@ -8,9 +8,7 @@ export const meta: MetaFunction = () => ({
 	viewport: "width=device-width,initial-scale=1",
 });
 
-export function links() {
-	return [...CoreLinks()];
-}
+export const links: LinksFunction = () => [...CoreLinks()];
 
 export default function App() {
 	return (

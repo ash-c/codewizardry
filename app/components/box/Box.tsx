@@ -1,10 +1,11 @@
 import type { ElementType } from "react";
 
-type BoxProps = {
+export type BoxProps = {
 	as?: ElementType;
 	children?: React.ReactNode;
+	className?: string;
 };
 
-export const Box = ({ as: Tag = "div", children }: BoxProps) => {
-	return <Tag>{children}</Tag>;
+export const Box = ({ as: Tag = "div", children, className }: BoxProps) => {
+	return <Tag className={className}>{children}</Tag>;
 };
