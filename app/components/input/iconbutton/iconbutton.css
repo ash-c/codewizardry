@@ -1,0 +1,21 @@
+button.icon-button {
+  width: auto;
+  height: auto;
+  background-color: transparent;
+  border: transparent;
+  padding: var(--space-small);
+}
+
+button.icon-button > .icon {
+  margin: 0;
+}
+
+button.icon-button:hover {
+  background-color: var(--colour-grey-light);
+  border-radius: 50%;
+}
+
+button.icon-button:focus {
+  border-radius: 50%;
+  background-color: var(--colour-grey-light);
+}

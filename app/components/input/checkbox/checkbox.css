@@ -1,0 +1,97 @@
+/* Base Styles */
+label.checkbox {
+  --checkbox-colour: var(--colour-primary);
+  --checkbox-border: var(--colour-grey-dark);
+  --checkbox-hover: var(--colour-primary-dark-1);
+  --checkbox-focus: var(--colour-grey-light);
+  --checkbox-disabled: var(--colour-grey);
+  --checkbox-checkmark: var(--colour-white);
+
+  font-size: 1rem;
+  line-height: 1.1;
+  width: 1.15em;
+  height: 1.15em;
+  display: grid;
+  grid-template-columns: 1em auto;
+}
+
+label.checkbox.gap {
+  gap: 0.5em;
+}
+
+input[type='checkbox'] {
+  -webkit-appearance: none;
+  appearance: none;
+  /* Not removed via appearance */
+  margin: 0;
+
+  font: inherit;
+  width: 1.15em;
+  height: 1.15em;
+  border: 1px solid var(--checkbox-border);
+  border-radius: 0.15em;
+  transform: translateY(-0.5px);
+  display: grid;
+  place-content: center;
+  transition: 120ms transform ease-in-out;
+}
+
+input[type='checkbox']:checked {
+  /* Windows High Contrast Mode */
+  background-color: CanvasText;
+  background-color: var(--checkbox-colour);
+}
+
+/* Checkmark */
+input[type='checkbox']::after {
+  content: '';
+  position: absolute;
+  display: none;
+  left: 0.3em;
+  top: 0.09em;
+  width: 0.375em;
+  height: 0.6875em;
+  border: solid var(--checkbox-checkmark);
+  border-width: 0 0.17em 0.17em 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+input[type='checkbox']:checked::after {
+  display: block;
+}
+
+/* Hover state. */
+input[type='checkbox']:hover {
+  background-color: var(--checkbox-focus);
+}
+
+input[type='checkbox']:checked:hover {
+  background-color: var(--checkbox-hover);
+}
+
+/* Focus state. */
+input[type='checkbox']:focus {
+  box-shadow: 0 0 0 0.2em var(--checkbox-focus);
+}
+
+input[type='checkbox']:checked:focus {
+  box-shadow: 0 0 0 0.2em var(--checkbox-focus);
+}
+
+/* Disabled state */
+label.checkbox.disabled {
+  color: var(--checkbox-disabled);
+  cursor: not-allowed;
+}
+
+input[type='checkbox']:disabled {
+  border: 1px solid var(--checkbox-disabled);
+  color: var(--checkbox-disabled);
+  cursor: not-allowed;
+}
+
+input[type='checkbox']:checked:disabled {
+  background-color: var(--checkbox-disabled);
+}

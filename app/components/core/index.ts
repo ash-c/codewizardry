@@ -1,1 +1,1 @@
-export { Core, links as CoreLinks } from "./core";
+export { Core, links as CoreLinks } from './core';

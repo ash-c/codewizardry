@@ -1,0 +1,16 @@
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
+.icon.primary {
+  color: var(--colour-primary);
+}
+
+.icon.secondary {
+  color: var(--colour-secondary);
+}
+
+.icon.error {
+  color: var(--colour-error);
+}

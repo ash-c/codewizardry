@@ -1,0 +1,53 @@
+.todo-container {
+  --colour-primary: #5a2971;
+  --colour-primary-dark-1: #401255;
+  --colour-primary-dark-2: #270339;
+  --colour-primary-light-1: #784a8e;
+  --colour-primary-light-2: #9974aa;
+
+  --colour-secondary: #a6a938;
+  --colour-secondary-dark-1: #7c7f15;
+  --colour-secondary-dark-2: #525500;
+  --colour-secondary-light-1: #d1d36a;
+  --colour-secondary-light-2: #fcfea9;
+
+  width: 400px;
+  margin: auto;
+
+  font-family: 'Source Sans Pro', system-ui, sans-serif;
+}
+
+h1 {
+  color: var(--colour-primary);
+  border-bottom: 2px solid var(--colour-secondary);
+  font-family: Oswald, system-ui, sans-serif;
+}
+
+.todo-item {
+  padding: var(--space-xsmall) var(--space-medium);
+  border: solid 2px var(--colour-primary);
+  border-radius: var(--space-medium);
+}
+
+.todo-item .text.done {
+  opacity: 65%;
+}
+
+.todo-item .box {
+  position: relative;
+  width: 100%;
+}
+
+.todo-item .todo {
+  position: absolute;
+  width: 0%;
+  top: 50%;
+  left: calc(var(--space-xsmall) * -1);
+  border-bottom: 2px solid;
+  color: var(--colour-primary);
+  transition: width 150ms ease-out;
+}
+
+.todo-item .done {
+  width: 90%;
+}

@@ -1,37 +1,48 @@
-import type { LinkDescriptor } from "@remix-run/node";
-import { Link } from "@remix-run/react";
-import React from "react";
-import { Box } from "../box";
-import { Column, ColumnLinks } from "../column";
-import { Container, ContainerLinks } from "../container";
-import styles from "./core.css";
+import type { ReactNode } from 'react';
+
+import {
+  ColumnLinks,
+  ContainerLinks,
+  StackLinks,
+  ButtonLinks,
+  DividerLinks,
+  CheckboxLinks,
+  TextLinks,
+  IconLinks,
+  IconButtonLinks,
+} from '@cw/index';
+
+import styles from './core.css';
+
+import type { LinkDescriptor } from '@remix-run/node';
 
 export function links(): LinkDescriptor[] {
-	return [{ rel: "stylesheet", href: styles }, ...ColumnLinks(), ...ContainerLinks()];
+  return [
+    {
+      rel: 'stylesheet',
+      href: 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap',
+    },
+    {
+      rel: 'stylesheet',
+      href: 'https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap',
+    },
+    { rel: 'stylesheet', href: styles },
+    ...StackLinks(),
+    ...ColumnLinks(),
+    ...ContainerLinks(),
+    ...DividerLinks(),
+    ...ButtonLinks(),
+    ...IconButtonLinks(),
+    ...CheckboxLinks(),
+    ...TextLinks(),
+    ...IconLinks(),
+  ];
 }
 
 type CoreProps = {
-	children?: React.ReactNode;
+  children?: ReactNode;
 };
 
 export const Core = ({ children }: CoreProps) => {
-	return (
-		<>
-			<nav>
-				<Column gap="none" className="height-full align-center">
-					<Box className="nav-logo">CW</Box>
-					<Link to="/" prefetch="intent">
-						Home
-					</Link>
-					<Link to="/projects" prefetch="intent">
-						Projects
-					</Link>
-					<Link to="/concepts" prefetch="intent">
-						Concepts
-					</Link>
-				</Column>
-			</nav>
-			<Container>{children}</Container>
-		</>
-	);
+  return <>{children}</>;
 };
