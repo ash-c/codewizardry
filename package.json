@@ -1,6 +1,7 @@
 {
   "private": true,
   "sideEffects": false,
+  "type": "module",
   "scripts": {
     "build": "remix build",
     "dev": "remix dev",
@@ -36,6 +37,7 @@
     "@storybook/testing-library": "^0.0.13",
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.9",
+    "autoprefixer": "^10.4.16",
     "babel-loader": "^8.3.0",
     "eslint": "^8.21.0",
     "eslint-config-prettier": "^8.5.0",
@@ -44,6 +46,8 @@
     "eslint-plugin-react": "^7.31.10",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-storybook": "^0.6.7",
+    "postcss-font-family-system-ui": "^5.0.0",
+    "postcss-preset-env": "^9.1.4",
     "prettier": "^2.0.5",
     "typescript": "^4.8.3"
   },

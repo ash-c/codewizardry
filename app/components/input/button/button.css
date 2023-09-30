@@ -21,9 +21,10 @@ button.primary {
   border-color: var(--colour-primary);
   background-color: var(--colour-primary);
   color: var(--colour-white);
-}
-button.primary:hover {
-  background-color: var(--colour-primary-dark-1);
+
+  &:hover {
+    background-color: var(--colour-primary-dark-1);
+  }
 }
 
 button.secondary {
