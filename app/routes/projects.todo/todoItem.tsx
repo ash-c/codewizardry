@@ -25,8 +25,8 @@ export const TodoItem = ({
       <Box>
         <Checkbox
           name="todoItem-doneState"
-          checked={done}
-          onChange={(event) => setDoneStatus(id, event.target.checked)}
+          isSelected={done}
+          onChange={(isSelected) => setDoneStatus(id, isSelected)}
         />
       </Box>
       <IconButton Icon={Delete} onClick={() => deleteTodo(id)} />

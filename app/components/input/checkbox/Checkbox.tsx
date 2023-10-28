@@ -1,10 +1,16 @@
-import type { DetailedHTMLProps, InputHTMLAttributes } from 'react';
+import {
+  useRef,
+  type DetailedHTMLProps,
+  type InputHTMLAttributes,
+} from 'react';
 
 import clsx from 'clsx';
 
 import styles from './checkbox.css';
 
 import type { LinksFunction } from '@remix-run/node';
+import { AriaCheckboxProps, useCheckbox } from 'react-aria';
+import { useToggleState } from 'react-stately';
 
 export const links: LinksFunction = () => [
   {
@@ -15,18 +21,22 @@ export const links: LinksFunction = () => [
 
 export type CheckboxProps = {
   label?: string;
-} & DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
+} & AriaCheckboxProps;
 
 export const Checkbox = ({ label, ...rest }: CheckboxProps) => {
+  const ref = useRef(null);
+  const state = useToggleState(rest);
+  const { inputProps, isDisabled } = useCheckbox(
+    { ...rest, 'aria-label': label || '' },
+    state,
+    ref
+  );
+
   return (
     <label
-      className={clsx([
-        'checkbox',
-        { disabled: rest.disabled },
-        { gap: !!label },
-      ])}
+      className={clsx(['checkbox', { disabled: isDisabled }, { gap: !!label }])}
     >
-      <input type="checkbox" {...rest} />
+      <input {...inputProps} ref={ref} />
       {label}
     </label>
   );

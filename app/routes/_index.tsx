@@ -2,7 +2,6 @@ import { Link } from '@remix-run/react';
 
 import { Box, Container, Stack } from '@cw/index';
 
-//eslint-disable-next-line
 export default function Index() {
   return (
     <Container>

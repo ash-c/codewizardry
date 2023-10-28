@@ -56,7 +56,7 @@ export const TodoApp = () => {
               setText(event.target.value);
             }}
           />
-          <Button type="submit" onClick={handleAddTodo}>
+          <Button type="submit" onPress={handleAddTodo}>
             Add
           </Button>
         </Column>

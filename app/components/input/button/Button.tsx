@@ -1,8 +1,9 @@
-import type {
-  ButtonHTMLAttributes,
-  DetailedHTMLProps,
-  ReactNode,
-  FunctionComponent,
+import {
+  type ButtonHTMLAttributes,
+  type DetailedHTMLProps,
+  type ReactNode,
+  type FunctionComponent,
+  useRef,
 } from 'react';
 
 import styles from './button.css';
@@ -10,6 +11,7 @@ import styles from './button.css';
 import type { SvgProps } from '@cw/icons/svg/Svg';
 import type { Colour } from '@cw/types';
 import type { LinksFunction } from '@remix-run/node';
+import { AriaButtonProps, useButton } from 'react-aria';
 
 export const links: LinksFunction = () => [
   {
@@ -18,15 +20,11 @@ export const links: LinksFunction = () => [
   },
 ];
 
-export type ButtonProps = {
-  children?: ReactNode;
+export type InternalButtonProps = {
   colour?: Colour;
   StartIcon?: FunctionComponent<SvgProps>;
   EndIcon?: FunctionComponent<SvgProps>;
-} & Omit<
-  DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>,
-  'color'
->;
+} & AriaButtonProps;
 
 export const Button = ({
   children,
@@ -34,15 +32,18 @@ export const Button = ({
   StartIcon,
   EndIcon,
   ...rest
-}: ButtonProps) => {
+}: InternalButtonProps) => {
   if (StartIcon && EndIcon) {
     throw new Error(
       'Buttons can only have either a Start or End Icon, not both.'
     );
   }
 
+  const ref = useRef(null);
+  const { buttonProps } = useButton(rest, ref);
+
   return (
-    <button {...rest} className={colour}>
+    <button {...buttonProps} ref={ref} className={colour}>
       {StartIcon && <StartIcon />}
       <span>{children}</span>
       {EndIcon && <EndIcon />}

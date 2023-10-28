@@ -45,7 +45,7 @@ import {
 } from "@remix-run/react";
 
 // app/components/core/core.css
-var core_default = "/build/_assets/core-IM7TKT5M.css";
+var core_default = "/build/_assets/core-F3UNE55F.css";
 
 // app/components/core/core.tsx
 import { Fragment, jsxDEV as jsxDEV2 } from "react/jsx-dev-runtime";
@@ -195,10 +195,16 @@ var links5 = () => [
   columnNumber: 10
 }, this);
 
+// app/components/input/button/Button.tsx
+import {
+  useRef
+} from "react";
+
 // app/components/input/button/button.css
 var button_default = "/build/_assets/button-FFHUUSPU.css";
 
 // app/components/input/button/Button.tsx
+import { useButton } from "react-aria";
 import { jsxDEV as jsxDEV8 } from "react/jsx-dev-runtime";
 var links4 = () => [
   {
@@ -216,70 +222,77 @@ var links4 = () => [
     throw new Error(
       "Buttons can only have either a Start or End Icon, not both."
     );
-  return /* @__PURE__ */ jsxDEV8("button", { ...rest, className: colour, children: [
+  let ref = useRef(null), { buttonProps } = useButton(rest, ref);
+  return /* @__PURE__ */ jsxDEV8("button", { ...buttonProps, ref, className: colour, children: [
     StartIcon && /* @__PURE__ */ jsxDEV8(StartIcon, {}, void 0, !1, {
       fileName: "app/components/input/button/Button.tsx",
-      lineNumber: 46,
+      lineNumber: 47,
       columnNumber: 21
     }, this),
     /* @__PURE__ */ jsxDEV8("span", { children }, void 0, !1, {
       fileName: "app/components/input/button/Button.tsx",
-      lineNumber: 47,
+      lineNumber: 48,
       columnNumber: 7
     }, this),
     EndIcon && /* @__PURE__ */ jsxDEV8(EndIcon, {}, void 0, !1, {
       fileName: "app/components/input/button/Button.tsx",
-      lineNumber: 48,
+      lineNumber: 49,
       columnNumber: 19
     }, this)
   ] }, void 0, !0, {
     fileName: "app/components/input/button/Button.tsx",
-    lineNumber: 45,
+    lineNumber: 46,
     columnNumber: 5
   }, this);
 };
 
 // app/components/input/checkbox/Checkbox.tsx
+import {
+  useRef as useRef2
+} from "react";
 import clsx4 from "clsx";
 
 // app/components/input/checkbox/checkbox.css
 var checkbox_default = "/build/_assets/checkbox-ZZJRUABW.css";
 
 // app/components/input/checkbox/Checkbox.tsx
+import { useCheckbox } from "react-aria";
+import { useToggleState } from "react-stately";
 import { jsxDEV as jsxDEV9 } from "react/jsx-dev-runtime";
 var links6 = () => [
   {
     rel: "stylesheet",
     href: checkbox_default
   }
-], Checkbox = ({ label, ...rest }) => /* @__PURE__ */ jsxDEV9(
-  "label",
-  {
-    className: clsx4(
-      [
-        "checkbox",
-        { disabled: rest.disabled },
-        { gap: !!label }
+], Checkbox = ({ label, ...rest }) => {
+  let ref = useRef2(null), state = useToggleState(rest), { inputProps, isDisabled } = useCheckbox(
+    { ...rest, "aria-label": label || "" },
+    state,
+    ref
+  );
+  return /* @__PURE__ */ jsxDEV9(
+    "label",
+    {
+      className: clsx4(["checkbox", { disabled: isDisabled }, { gap: !!label }]),
+      children: [
+        /* @__PURE__ */ jsxDEV9("input", { ...inputProps, ref }, void 0, !1, {
+          fileName: "app/components/input/checkbox/Checkbox.tsx",
+          lineNumber: 39,
+          columnNumber: 7
+        }, this),
+        label
       ]
-    ),
-    children: [
-      /* @__PURE__ */ jsxDEV9("input", { type: "checkbox", ...rest }, void 0, !1, {
-        fileName: "app/components/input/checkbox/Checkbox.tsx",
-        lineNumber: 29,
-        columnNumber: 7
-      }, this),
-      label
-    ]
-  },
-  void 0,
-  !0,
-  {
-    fileName: "app/components/input/checkbox/Checkbox.tsx",
-    lineNumber: 22,
-    columnNumber: 5
-  },
-  this
-);
+    },
+    void 0,
+    !0,
+    {
+      fileName: "app/components/input/checkbox/Checkbox.tsx",
+      lineNumber: 36,
+      columnNumber: 5
+    },
+    this
+  );
+};
 
 // app/components/input/text/Text.tsx
 import clsx5 from "clsx";
@@ -784,8 +797,8 @@ var TodoItem = ({
       Checkbox,
       {
         name: "todoItem-doneState",
-        checked: done,
-        onChange: (event) => setDoneStatus(id, event.target.checked)
+        isSelected: done,
+        onChange: (isSelected) => setDoneStatus(id, isSelected)
       },
       void 0,
       !1,
@@ -860,7 +873,7 @@ var TodoLinks = () => [
         },
         this
       ),
-      /* @__PURE__ */ jsxDEV18(Button, { type: "submit", onClick: handleAddTodo, children: "Add" }, void 0, !1, {
+      /* @__PURE__ */ jsxDEV18(Button, { type: "submit", onPress: handleAddTodo, children: "Add" }, void 0, !1, {
         fileName: "app/routes/projects.todo/todo.tsx",
         lineNumber: 59,
         columnNumber: 11
@@ -934,50 +947,50 @@ function Index() {
   return /* @__PURE__ */ jsxDEV20(Container, { children: /* @__PURE__ */ jsxDEV20("main", { children: [
     /* @__PURE__ */ jsxDEV20("h1", { children: "Welcome to Code Wizardry" }, void 0, !1, {
       fileName: "app/routes/_index.tsx",
-      lineNumber: 10,
+      lineNumber: 9,
       columnNumber: 9
     }, this),
     /* @__PURE__ */ jsxDEV20(Stack, { gap: "medium", children: [
       /* @__PURE__ */ jsxDEV20(Box, { children: /* @__PURE__ */ jsxDEV20(Box, { children: "some text about" }, void 0, !1, {
         fileName: "app/routes/_index.tsx",
-        lineNumber: 13,
+        lineNumber: 12,
         columnNumber: 13
       }, this) }, void 0, !1, {
         fileName: "app/routes/_index.tsx",
-        lineNumber: 12,
+        lineNumber: 11,
         columnNumber: 11
       }, this),
       /* @__PURE__ */ jsxDEV20(Box, { children: /* @__PURE__ */ jsxDEV20("h2", { children: /* @__PURE__ */ jsxDEV20(Link2, { to: "/projects", children: "Projects" }, void 0, !1, {
         fileName: "app/routes/_index.tsx",
-        lineNumber: 17,
+        lineNumber: 16,
         columnNumber: 15
       }, this) }, void 0, !1, {
         fileName: "app/routes/_index.tsx",
-        lineNumber: 16,
+        lineNumber: 15,
         columnNumber: 13
       }, this) }, void 0, !1, {
         fileName: "app/routes/_index.tsx",
-        lineNumber: 15,
+        lineNumber: 14,
         columnNumber: 11
       }, this)
     ] }, void 0, !0, {
       fileName: "app/routes/_index.tsx",
-      lineNumber: 11,
+      lineNumber: 10,
       columnNumber: 9
     }, this)
   ] }, void 0, !0, {
     fileName: "app/routes/_index.tsx",
-    lineNumber: 9,
+    lineNumber: 8,
     columnNumber: 7
   }, this) }, void 0, !1, {
     fileName: "app/routes/_index.tsx",
-    lineNumber: 8,
+    lineNumber: 7,
     columnNumber: 5
   }, this);
 }
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { entry: { module: "/build/entry.client-ULAGSBK5.js", imports: ["/build/_shared/chunk-ZWGWGGVF.js", "/build/_shared/chunk-GIAAE3CH.js", "/build/_shared/chunk-F5JEGH3J.js", "/build/_shared/chunk-XU7DNSPJ.js", "/build/_shared/chunk-BOXFZXVX.js", "/build/_shared/chunk-XFW6AOUW.js", "/build/_shared/chunk-UWV35TSL.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-CGTG6S4H.js", imports: ["/build/_shared/chunk-QVJLR7MG.js", "/build/_shared/chunk-GPIVTV25.js"], hasAction: !1, hasLoader: !1, hasErrorBoundary: !0 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-LEC6K245.js", imports: void 0, hasAction: !1, hasLoader: !1, hasErrorBoundary: !1 }, "routes/projects._index": { id: "routes/projects._index", parentId: "root", path: "projects", index: !0, caseSensitive: void 0, module: "/build/routes/projects._index-YSN4Y56O.js", imports: void 0, hasAction: !1, hasLoader: !1, hasErrorBoundary: !1 }, "routes/projects.todo": { id: "routes/projects.todo", parentId: "root", path: "projects/todo", index: void 0, caseSensitive: void 0, module: "/build/routes/projects.todo-26DKEXAG.js", imports: void 0, hasAction: !1, hasLoader: !1, hasErrorBoundary: !1 } }, version: "3bfa5680", hmr: { runtime: "/build/_shared/chunk-XFW6AOUW.js", timestamp: 1696037003174 }, url: "/build/manifest-3BFA5680.js" };
+var assets_manifest_default = { entry: { module: "/build/entry.client-ULAGSBK5.js", imports: ["/build/_shared/chunk-ZWGWGGVF.js", "/build/_shared/chunk-GIAAE3CH.js", "/build/_shared/chunk-F5JEGH3J.js", "/build/_shared/chunk-XU7DNSPJ.js", "/build/_shared/chunk-BOXFZXVX.js", "/build/_shared/chunk-XFW6AOUW.js", "/build/_shared/chunk-UWV35TSL.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-7O22PY4Q.js", imports: ["/build/_shared/chunk-72R5ZDVA.js", "/build/_shared/chunk-GPIVTV25.js"], hasAction: !1, hasLoader: !1, hasErrorBoundary: !0 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-IP6ALMAY.js", imports: void 0, hasAction: !1, hasLoader: !1, hasErrorBoundary: !1 }, "routes/projects._index": { id: "routes/projects._index", parentId: "root", path: "projects", index: !0, caseSensitive: void 0, module: "/build/routes/projects._index-YSN4Y56O.js", imports: void 0, hasAction: !1, hasLoader: !1, hasErrorBoundary: !1 }, "routes/projects.todo": { id: "routes/projects.todo", parentId: "root", path: "projects/todo", index: void 0, caseSensitive: void 0, module: "/build/routes/projects.todo-VHXCYRLT.js", imports: void 0, hasAction: !1, hasLoader: !1, hasErrorBoundary: !1 } }, version: "52a3c3c9", hmr: { runtime: "/build/_shared/chunk-XFW6AOUW.js", timestamp: 1698462538745 }, url: "/build/manifest-52A3C3C9.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var mode = "development", assetsBuildDirectory = "public/build", future = {}, publicPath = "/build/", entry = { module: entry_server_exports }, routes = {

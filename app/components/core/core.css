@@ -1,8 +1,7 @@
 :root {
   /* Base colours */
-  --colour-white: #ffffff;
-  --colour-black: #000000;
-
+  --colour-white: #fff;
+  --colour-black: #000;
   --colour-grey: #b4b4b4;
   --colour-grey-light: #e6e6e6;
   --colour-grey-dark: #393939;
@@ -46,7 +45,6 @@
   --space-medium: 1rem;
   --space-large: 1.5rem;
   --space-xlarge: 2rem;
-
   --space-xsmall-px: 4px;
   --space-small-px: 8px;
   --space-medium-px: 16px;
@@ -64,8 +62,8 @@
 }
 
 *,
-*:before,
-*:after {
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -150,18 +148,23 @@ body {
 .margin-b-none {
   margin-bottom: var(--space-none);
 }
+
 .margin-b-xsmall {
   margin-bottom: var(--space-xsmall);
 }
+
 .margin-b-small {
   margin-bottom: var(--space-small);
 }
+
 .margin-b-medium {
   margin-bottom: var(--space-medium);
 }
+
 .margin-b-large {
   margin-bottom: var(--space-large);
 }
+
 .margin-b-xlarge {
   margin-bottom: var(--space-xlarge);
 }
@@ -170,36 +173,6 @@ body {
 label.disabled {
   color: var(--colour-grey);
   cursor: not-allowed;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  color: var(--colour-primary);
-}
-
-h1 a,
-h2 a,
-h3 a,
-h4 a,
-h5 a,
-h6 a {
-  color: var(--colour-primary);
-  text-decoration: none;
-}
-
-h1 a:visited,
-h2 a:visited,
-h3 a:visited,
-h4 a:visited,
-h5 a:visited,
-h6 a:visited {
-  color: var(--colour-primary);
 }
 
 /* Navigation */
@@ -234,13 +207,44 @@ nav a {
   font-weight: 600;
 }
 
+nav a.active {
+  border-bottom: solid 4px var(--colour-highlight-light-2);
+  color: var(--colour-highlight-light-2);
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--colour-primary);
+}
+
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+  color: var(--colour-primary);
+  text-decoration: none;
+}
+
+h1 a:visited,
+h2 a:visited,
+h3 a:visited,
+h4 a:visited,
+h5 a:visited,
+h6 a:visited {
+  color: var(--colour-primary);
+}
+
 nav a:hover {
   color: var(--colour-highlight-light-2);
   border-bottom: solid 4px var(--colour-highlight-light-2);
   text-decoration: none;
-}
-
-nav a.active {
-  border-bottom: solid 4px var(--colour-highlight-light-2);
-  color: var(--colour-highlight-light-2);
 }

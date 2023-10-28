@@ -3,20 +3,20 @@ import { Stack } from '../../layout';
 
 import { Button } from './Button';
 
-import type { ButtonProps } from './Button';
+import type { InternalButtonProps } from './Button';
 import type { Meta, Story } from '@storybook/react';
 
 //eslint-disable-next-line
 export default {
   title: 'Components/Input/Button',
   component: Button,
-} as Meta<ButtonProps>;
+} as Meta<InternalButtonProps>;
 
-export const Default: Story<ButtonProps> = (args) => {
+export const Default: Story<InternalButtonProps> = (args) => {
   return <Button {...args}>Default</Button>;
 };
 
-export const Secondary: Story<ButtonProps> = (args) => {
+export const Secondary: Story<InternalButtonProps> = (args) => {
   return (
     <Button {...args} colour="secondary">
       Secondary
@@ -24,7 +24,7 @@ export const Secondary: Story<ButtonProps> = (args) => {
   );
 };
 
-export const Error: Story<ButtonProps> = (args) => {
+export const Error: Story<InternalButtonProps> = (args) => {
   return (
     <Button {...args} colour="error">
       Secondary
@@ -32,7 +32,7 @@ export const Error: Story<ButtonProps> = (args) => {
   );
 };
 
-export const WithIcon: Story<ButtonProps> = (args) => {
+export const WithIcon: Story<InternalButtonProps> = (args) => {
   return (
     <Stack>
       <div>
